@@ -29,6 +29,7 @@
 
 @interface NHCalendarActivity ()
 @property (strong) NSMutableArray *events;
+@property (strong) UIImage *_activityImage;
 @end
 
 @implementation NHCalendarActivity
@@ -39,10 +40,20 @@
     
     if (self) {
         self.events = [NSMutableArray array];
-        self.activityImage = [UIImage imageNamed:@"NHCalendarActivity.bundle/NHCalendarActivityIcon"];
+        self._activityImage = [UIImage imageNamed:@"NHCalendarActivity.bundle/NHCalendarActivityIcon"];
     }
     
     return self;
+}
+
+- (void)setActivityImage:(UIImage *)activityImage
+{
+    self._activityImage = activityImage;
+}
+
+- (UIImage *)activityImage
+{
+    return self._activityImage;
 }
 
 - (NSString *)activityType
